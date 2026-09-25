@@ -15,7 +15,7 @@ namespace ArcanaWars.Presentation
     /// no way to act on the match at all. Clicks are the match screen's business; this only
     /// translates a screen point into a tile.</para>
     ///
-    /// <para>This is the non-UI half of the old debug MatchView, split out so the UI Toolkit screens
+    /// <para>This is the non-UI half of the old debug IMGUI view, split out so the UI Toolkit screens
     /// can sit on top of it without either knowing how the other is built.</para>
     /// </summary>
     public class BoardView : MonoBehaviour

@@ -271,7 +271,23 @@ namespace ArcanaWars.Core.Match
         public void QueueJudgement(PlayerSide judge, GraveyardEntry entry)
         {
             if (entry == null) return;
-            _pendingJudgements.Add(new PendingJudgement(_nextJudgementId++, judge, entry));
+            _pendingJudgements.Add(new PendingJudgement(_nextJudgementId++, judge, entry, Rounds.RoundNumber));
+        }
+
+        /// <summary>
+        /// Drops rulings nobody answered in time (see PendingJudgement.RoundsToDecide). Called as each
+        /// round begins.
+        ///
+        /// Lapsing removes only the prompt: the unit stays in its graveyard, which is exactly what an
+        /// unanswered ruling always meant. Nothing about the board changes, so this can never decide a
+        /// match by itself — and, being driven by the round clock rather than by anything random, both
+        /// machines in a networked game lapse the same rulings at the same moment.
+        /// </summary>
+        private void ExpireLapsedJudgements()
+        {
+            for (int i = _pendingJudgements.Count - 1; i >= 0; i--)
+                if (_pendingJudgements[i].HasLapsed(Rounds.RoundNumber))
+                    _pendingJudgements.RemoveAt(i);
         }
 
         public bool RemoveFromGraveyard(GraveyardEntry entry) =>
@@ -341,6 +357,7 @@ namespace ArcanaWars.Core.Match
         {
             if (IsOver) return;
             Rounds.BeginNextRound();
+            ExpireLapsedJudgements();
         }
 
         /// <summary>
@@ -382,7 +399,7 @@ namespace ArcanaWars.Core.Match
         /// trigger and the win check before returning, which turns one player tapping "Pass" into
         /// the most side-effect-heavy call in the codebase and leaves the caller refreshing a view
         /// of a board that already moved on. Whoever drives the match watches ActionComplete and
-        /// calls AdvancePhase — see MatchView.
+        /// calls AdvancePhase — see MatchScreen.
         /// </summary>
         public bool TryPass(PlayerSide side, out string reason)
         {

@@ -16,7 +16,7 @@ namespace ArcanaWars.Cards.Decks
     /// Entries are card ids rather than object references because the id is the shared format across
     /// both routes — and a JSON file has no way to hold a reference. The ids are the ones in
     /// CardDatabase: "minor_Swords_5", "king_Cups", "8_strength". Hand-typing them is not the intended
-    /// workflow; build the deck in DeckBuilderView and save it, then convert.
+    /// workflow; build the deck in the deck builder screen and save it, then convert.
     /// </summary>
     [CreateAssetMenu(menuName = "Arcana Wars/Deck", fileName = "NewDeck")]
     public class DeckAsset : ScriptableObject

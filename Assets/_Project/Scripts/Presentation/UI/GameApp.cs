@@ -29,6 +29,7 @@ namespace ArcanaWars.Presentation.UI
         [Header("Screen layouts (UXML)")]
         [SerializeField] private VisualTreeAsset lobbyScreenLayout;
         [SerializeField] private VisualTreeAsset matchScreenLayout;
+        [SerializeField] private VisualTreeAsset deckBuilderScreenLayout;
 
         [Header("Board")]
         [SerializeField] private int columns = 18;
@@ -59,14 +60,15 @@ namespace ArcanaWars.Presentation.UI
 
         private LobbyScreen _lobbyScreen;
         private MatchScreen _matchScreen;
+        private DeckBuilderScreen _deckBuilderScreen;
         private UiScreen _current;
         private IMatchDriver _driver;
 
         private void Start()
         {
-            if (cardDatabase == null || boardView == null || matchScreenLayout == null || lobbyScreenLayout == null)
+            if (cardDatabase == null || boardView == null || matchScreenLayout == null || lobbyScreenLayout == null || deckBuilderScreenLayout == null)
             {
-                Debug.LogError("GameApp: assign Card Database, Board View, Lobby Screen Layout and Match Screen Layout in the Inspector.", this);
+                Debug.LogError("GameApp: assign Card Database, Board View, and all three Screen Layouts in the Inspector.", this);
                 enabled = false;
                 return;
             }
@@ -93,8 +95,16 @@ namespace ArcanaWars.Presentation.UI
             _lobbyScreen.JoinRequested += OnJoin;
             _lobbyScreen.CancelRequested += ReturnToLobby;
 
+            _lobbyScreen.DeckBuilderRequested += OpenDeckBuilder;
+
             _matchScreen = new MatchScreen(matchScreenLayout, root, boardView, cardDatabase);
             _matchScreen.ExitRequested += ReturnToLobby;
+
+            _deckBuilderScreen = new DeckBuilderScreen(deckBuilderScreenLayout, root, cardDatabase);
+
+            // Coming back re-reads the saved decks, so a deck built just now is selectable straight
+            // away — see LobbyScreen.ShowSetup.
+            _deckBuilderScreen.BackRequested += ReturnToLobby;
 
             ShowScreen(_lobbyScreen);
             _lobbyScreen.ShowSetup();
@@ -149,6 +159,12 @@ namespace ArcanaWars.Presentation.UI
             _driver = driver;
             _matchScreen.Attach(driver);
             _lobbyScreen.ShowConnecting(driver, connectingTitle);
+        }
+
+        private void OpenDeckBuilder()
+        {
+            ShowScreen(_deckBuilderScreen);
+            _deckBuilderScreen.Open();
         }
 
         private MatchParameters Parameters() =>

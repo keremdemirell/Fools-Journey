@@ -43,7 +43,7 @@ namespace ArcanaWars.Presentation
     /// choices and never builds a MatchState itself — after this hands back a driver, nothing in
     /// Presentation touches the simulation except through it.
     ///
-    /// <para>Moved out of the debug MatchView unchanged in behaviour: deck resolution order, the
+    /// <para>Moved out of the old debug IMGUI view unchanged in behaviour: deck resolution order, the
     /// random-45 fallback, and the host dictating the whole setup (see MatchSetup).</para>
     /// </summary>
     public static class MatchLauncher

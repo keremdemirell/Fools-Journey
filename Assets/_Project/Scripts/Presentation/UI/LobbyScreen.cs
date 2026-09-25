@@ -70,6 +70,7 @@ namespace ArcanaWars.Presentation.UI
         public event Action<LobbySelection> HostRequested;
         public event Action<LobbySelection> JoinRequested;
         public event Action CancelRequested;
+        public event Action DeckBuilderRequested;
 
         public LobbyScreen(VisualTreeAsset layout, VisualElement host, LobbyDefaults defaults) : base(layout, host)
         {
@@ -93,6 +94,7 @@ namespace ArcanaWars.Presentation.UI
             Require<Button>("host-button").clicked += () => Raise(HostRequested);
             Require<Button>("join-button").clicked += () => Raise(JoinRequested);
             _cancel.clicked += () => CancelRequested?.Invoke();
+            Require<Button>("deck-builder-button").clicked += () => DeckBuilderRequested?.Invoke();
 
             FillDeckChoices();
 

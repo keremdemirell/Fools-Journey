@@ -188,6 +188,141 @@
     margin: 4px 0;
 }
 
+/* --- Deck builder ---------------------------------------------------------------------------- */
+
+.builder {
+    background-color: rgb(16, 16, 22);
+    padding: 16px 20px;
+}
+
+.builder__header {
+    flex-direction: row;
+    align-items: center;
+}
+
+.app .builder__title {
+    font-size: 30px;
+    -unity-font-style: bold;
+    color: var(--accent);
+    margin-right: 24px;
+}
+
+.builder__name {
+    width: 320px;
+    margin-right: 24px;
+}
+
+.app .builder__count {
+    flex-grow: 1;
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(255, 209, 102);
+}
+
+.app .builder__count--legal {
+    color: rgb(140, 224, 143);
+}
+
+.app .builder__validity {
+    white-space: normal;
+    color: rgb(255, 179, 179);
+    margin: 6px 0;
+}
+
+.app .builder__validity--legal {
+    color: rgb(140, 224, 143);
+}
+
+.builder__columns {
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.builder__column {
+    flex-grow: 1;
+    width: 50%;
+    margin: 4px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: var(--bg-panel);
+}
+
+.app .builder__heading {
+    font-size: 20px;
+    -unity-font-style: bold;
+    margin-bottom: 6px;
+}
+
+.builder__filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.builder__list {
+    flex-grow: 1;
+    margin-top: 6px;
+}
+
+.app .builder__message {
+    white-space: normal;
+    min-height: 20px;
+}
+
+.builder-row {
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.builder-row:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* At its copy limit, or the deck is full: dimmed, but still in place with its count visible. */
+.builder-row--maxed {
+    opacity: 0.45;
+}
+
+.app .builder-row__name {
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 14px;
+    white-space: normal;
+}
+
+.app .builder-row__count {
+    width: 54px;
+    font-size: 14px;
+    color: var(--text-muted);
+    -unity-text-align: middle-right;
+    margin-right: 8px;
+}
+
+.app .button--tiny {
+    font-size: 15px;
+    width: 30px;
+    padding: 2px 0;
+    -unity-text-align: middle-center;
+}
+
+.builder__modal {
+    background-color: rgba(8, 8, 12, 0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+.builder__modal-card {
+    width: 520px;
+    max-height: 70%;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgb(26, 26, 34);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
 /* --- Match: top bar ---------------------------------------------------------------------- */
 
 .top-bar {
@@ -489,6 +624,12 @@
     flex-shrink: 1;
     margin-right: 8px;
     white-space: normal;
+    font-size: 15px;
+}
+
+/* Lapses at the end of this round: after that the unit simply stays dead. */
+.app .judgement-row__name--urgent {
+    color: var(--accent);
 }
 
 /* --- Match: the result ---------------------------------------------------------------------- */

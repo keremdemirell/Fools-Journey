@@ -18,7 +18,7 @@ namespace ArcanaWars.Core.Cards
     /// <summary>
     /// One reason a deck is illegal, carrying enough for a UI to both print it and highlight the card
     /// it's about. Message is composed in Core rather than in the view so that every surface — the
-    /// deckbuilder, MatchView's startup check, a test harness — words the same problem the same way.
+    /// the deck builder, the lobby's startup check, a test harness — words the same problem the same way.
     /// </summary>
     public readonly struct DeckIssue
     {

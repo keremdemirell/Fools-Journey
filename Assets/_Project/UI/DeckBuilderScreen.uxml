@@ -1,0 +1,54 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="Theme.uss" />
+
+    <!--
+        The deck builder: pool on the left, deck on the right. Rows in both lists and the filter
+        buttons are built from code (DeckBuilderScreen.cs) because they come from the card database.
+    -->
+    <ui:VisualElement name="deck-builder" class="app fill builder">
+
+        <ui:VisualElement class="builder__header">
+            <ui:Label text="Deck builder" class="builder__title" />
+            <ui:TextField name="deck-name" label="Name" class="builder__name" />
+            <ui:Label name="deck-count" text="0 / 45 cards" class="builder__count" />
+            <ui:Button name="back-button" text="Back to lobby" class="button" />
+        </ui:VisualElement>
+
+        <ui:Label name="deck-validity" text="" class="builder__validity" />
+
+        <ui:VisualElement class="builder__columns">
+
+            <ui:VisualElement class="builder__column">
+                <ui:Label text="Card pool" class="builder__heading" />
+                <ui:VisualElement name="tier-filters" class="builder__filters" />
+                <ui:VisualElement name="element-filters" class="builder__filters" />
+                <ui:TextField name="search-field" label="Search" />
+                <ui:ScrollView name="pool-list" class="builder__list" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="builder__column">
+                <ui:Label text="Deck" class="builder__heading" />
+
+                <ui:VisualElement class="builder__filters">
+                    <ui:Button name="new-button" text="New" class="button button--small" />
+                    <ui:Button name="fill-button" text="Fill randomly" class="button button--small" />
+                    <ui:Button name="clear-button" text="Clear" class="button button--small" />
+                    <ui:Button name="save-button" text="Save" class="button button--small button--primary" />
+                    <ui:Button name="load-button" text="Load" class="button button--small" />
+                </ui:VisualElement>
+
+                <ui:Label name="builder-message" text="" class="muted builder__message" />
+                <ui:ScrollView name="deck-list" class="builder__list" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- Saved decks, over everything else until closed. -->
+        <ui:VisualElement name="load-panel" class="fill builder__modal">
+            <ui:VisualElement class="builder__modal-card">
+                <ui:Label text="Saved decks" class="builder__heading" />
+                <ui:ScrollView name="saved-list" class="builder__list" />
+                <ui:Button name="load-close" text="Close" class="button button--wide" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

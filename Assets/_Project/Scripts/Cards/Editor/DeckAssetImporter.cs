@@ -6,8 +6,8 @@ using ArcanaWars.Cards.Decks;
 namespace ArcanaWars.Cards.Editor
 {
     /// <summary>
-    /// Brings decks built in DeckBuilderView (saved as JSON, because a running game cannot write
-    /// project assets) into the project as DeckAssets, so they can be dragged onto MatchView in the
+    /// Brings decks built in the deck builder screen (saved as JSON, because a running game cannot write
+    /// project assets) into the project as DeckAssets, so they can be dragged onto GameApp in the
     /// Inspector.
     ///
     /// This is the one-way door between the two persistence formats. It's automated rather than done
@@ -25,7 +25,7 @@ namespace ArcanaWars.Cards.Editor
             var names = DeckStorage.SavedDeckNames();
             if (names.Count == 0)
             {
-                Debug.LogWarning($"No saved decks found in {DeckStorage.DirectoryPath}. Build one in DeckBuilderView and press Save first.");
+                Debug.LogWarning($"No saved decks found in {DeckStorage.DirectoryPath}. Build one in the deck builder screen and press Save first.");
                 return;
             }
 

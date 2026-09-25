@@ -16,6 +16,7 @@
                 <ui:DropdownField name="deck-b" label="Player B" />
                 <ui:Label text="A deck saved in the deck builder appears here. When hosting, both decks are chosen here and sent to the other player."
                           class="muted lobby__hint" />
+                <ui:Button name="deck-builder-button" text="Open the deck builder" class="button" />
             </ui:VisualElement>
 
             <ui:VisualElement class="lobby__section">

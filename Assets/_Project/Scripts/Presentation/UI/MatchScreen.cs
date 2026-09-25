@@ -249,8 +249,14 @@ namespace ArcanaWars.Presentation.UI
                 var row = new VisualElement();
                 row.AddToClassList("judgement-row");
 
-                var label = new Label($"{ruling.DisplayName}  ({ruling.UnitOwner}'s)");
+                // The deadline is shown per row rather than once at the top, because rulings raised in
+                // different rounds lapse in different rounds.
+                bool lastChance = ruling.ExpiresAfterRound <= s.Round;
+                string deadline = lastChance ? "decide this round" : $"until end of round {ruling.ExpiresAfterRound}";
+
+                var label = new Label($"{ruling.DisplayName}  ({ruling.UnitOwner}'s)\n{deadline}");
                 label.AddToClassList("judgement-row__name");
+                label.EnableInClassList("judgement-row__name--urgent", lastChance);
                 row.Add(label);
 
                 // A token that was never a card (the Hanged Man's Tree) has nothing to return to a

@@ -301,6 +301,7 @@ namespace ArcanaWars.Core.Session
                     DisplayName = entry.SourceCard != null ? entry.SourceCard.DisplayName : entry.DefinitionId,
                     CanReturnToHand = pending.CanReturnToHand,
                     CanRuleHere = session.CanJudge(pending.Judge),
+                    ExpiresAfterRound = pending.ExpiresAfterRound,
                 });
             }
 
@@ -445,5 +446,8 @@ namespace ArcanaWars.Core.Session
 
         /// <summary>A player at this screen may answer it right now — see MatchSession.CanJudge.</summary>
         public bool CanRuleHere { get; internal set; }
+
+        /// <summary>The last round this can be answered in. After that it lapses and the unit simply stays dead — see PendingJudgement.</summary>
+        public int ExpiresAfterRound { get; internal set; }
     }
 }
