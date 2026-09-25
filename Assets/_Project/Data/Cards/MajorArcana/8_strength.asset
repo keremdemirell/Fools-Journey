@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 8_strength
+  m_EditorClassIdentifier: 
+  cardId: 8_strength
+  displayName: Strength
+  art: {fileID: 0}
+  cost: 5
+  startingHp: 6
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 4
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 1
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 1
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "Fully supported: Heal:1 to its owner's Soul, immune to attack damage,
+    still takes normal decay. Its immunity also covers ability damage such as The
+    Tower's explosion, since all damage goes through one funnel (UnitInstance.ApplyCombatDamage)
+    \u2014 the card promises it survives 'regardless of enemy offense'."

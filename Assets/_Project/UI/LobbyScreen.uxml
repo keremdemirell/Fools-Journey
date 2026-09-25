@@ -1,0 +1,55 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="Theme.uss" />
+
+    <!--
+        The lobby. Two panels, one visible at a time: the setup form, and what the connection is
+        doing once a match has been asked for. LobbyScreen.cs finds everything by name.
+    -->
+    <ui:VisualElement name="lobby-screen" class="app fill lobby">
+
+        <ui:VisualElement name="lobby-setup" class="lobby__card">
+            <ui:Label text="Arcana Wars" class="lobby__title" />
+
+            <ui:VisualElement class="lobby__section">
+                <ui:Label text="Decks" class="lobby__heading" />
+                <ui:DropdownField name="deck-a" label="Player A" />
+                <ui:DropdownField name="deck-b" label="Player B" />
+                <ui:Label text="A deck saved in the deck builder appears here. When hosting, both decks are chosen here and sent to the other player."
+                          class="muted lobby__hint" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="lobby__section">
+                <ui:Label text="On this device" class="lobby__heading" />
+                <ui:Toggle name="hotseat-toggle" label="Hide hands between turns" />
+                <ui:Label text="On: each player only sees their own hand, with a handover screen between turns. Off: both hands are visible — quicker for testing alone."
+                          class="muted lobby__hint" />
+                <ui:Button name="play-here-button" text="Play on this device" class="button button--primary button--wide" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="lobby__section">
+                <ui:Label text="Over the network" class="lobby__heading" />
+
+                <ui:VisualElement class="lobby__row">
+                    <ui:TextField name="address-field" label="Address" class="lobby__field" />
+                    <ui:TextField name="port-field" label="Port" class="lobby__field lobby__field--narrow" />
+                </ui:VisualElement>
+
+                <ui:VisualElement class="lobby__row">
+                    <ui:Button name="host-button" text="Host a game" class="button" />
+                    <ui:Button name="join-button" text="Join a game" class="button" />
+                </ui:VisualElement>
+
+                <ui:Label text="Hosting uses the port above; the address is ignored. To join on the same network, enter the host's local IP (run 'ipconfig' on that machine) and the port it is hosting on. Use 127.0.0.1 to test two copies on this machine. Over the internet through a tunnel, enter the address and port the tunnel gives you — they will not match the host's own."
+                          class="muted lobby__hint" />
+            </ui:VisualElement>
+
+            <ui:Label name="lobby-error" text="" class="lobby__error" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="lobby-connecting" class="lobby__card lobby__card--narrow">
+            <ui:Label name="connecting-title" text="Connecting..." class="lobby__title" />
+            <ui:Label name="connecting-status" text="" class="lobby__status" />
+            <ui:Button name="cancel-button" text="Cancel" class="button button--wide" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

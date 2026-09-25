@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 20_judgement
+  m_EditorClassIdentifier: 
+  cardId: 20_judgement
+  displayName: Judgement
+  art: {fileID: 0}
+  cost: 14
+  startingHp: 14
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 9
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 1
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (JudgementAbility). Over-Pentacle:1. On play:
+    if the enemy Soul is higher than yours it's lowered to match (not damage \u2014
+    no triggers, ignores The Devil's immunity), then each side's empty tiles are
+    filled with random units from that side's own graveyard (every unit that died
+    this match, tokens included), each at most once, spawned rather than played.
+    While Judgement lives, every death \u2014 friend or foe \u2014 queues a ruling
+    for you (MatchState.PendingJudgements): RETURN puts that unit's card into YOUR
+    hand (so judging a foe steals its card), DISCARD removes it from the graveyard
+    for good. Tokens with no card (3 of Swords, Tree, right Lover) can only be discarded.
+    MY CALLS: rulings have no deadline \u2014 an unanswered one just leaves the unit
+    in the graveyard, so the match never has to stop and wait; a full hand burns
+    a returned card like an overdraw."

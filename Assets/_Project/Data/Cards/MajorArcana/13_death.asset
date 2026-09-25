@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 13_death
+  m_EditorClassIdentifier: 
+  cardId: 13_death
+  displayName: Death
+  art: {fileID: 0}
+  cost: 8
+  startingHp: 8
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 2
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 1
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 1
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (DeathAbility). Base Attack:1/Pentacle:1. ON PLAY
+    (user decisions): optionally target one of YOUR units, chosen at play time; it's
+    killed and a random deck card with a HIGHER printed cost whose footprint fits
+    there spawns in its place. If no such card exists, that unit can't be targeted,
+    so no mana is spent on a dud. The kill is a real death (Fool burns, Tower explodes)
+    but Death's own passive stands down for it. The replacement is SPAWNED, not played:
+    unpaid, not in match history, and its on-play ability doesn't fire (its ongoing
+    abilities do). PASSIVE: the on-death 3 of Swords trigger works. ALLIES ONLY (user
+    decision, overriding the GDD's 'ANY unit' / 'friend or foe'): only your own units
+    become a 3 of Swords; an enemy unit dying does nothing. An allied 3 of Swords
+    that dies spawns another, so Death's board self-replaces while Death lives; it
+    can't loop within one death pass, since the spawn arrives at full HP. Death does
+    not replace itself \u2014 it has already left the board when its own death is
+    announced."

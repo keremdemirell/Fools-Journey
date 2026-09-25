@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 4_emperor
+  m_EditorClassIdentifier: 
+  cardId: 4_emperor
+  displayName: The Emperor
+  art: {fileID: 0}
+  cost: 3
+  startingHp: 5
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 3
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 1
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (EmperorAbility). Attack:1 (lane), condition (2+
+    Kings played), and on play a wall of TWO LINES: the column just left of the Emperor
+    and the column just right of it, each from one end of the board to the other
+    (user's design, revised 2026-09-15 \u2014 the first version walled its own 3
+    columns). The Emperor's own columns stay open between the lines. Wall tiles are
+    solid for EVERYONE: nobody can place a unit on them, and no unit can be moved
+    onto or off them (a unit already standing there when the wall rises stays, pinned
+    \u2014 this is what stops the Chariot). The wall stands while the Emperor lives
+    and comes down when it dies (my call, confirmed by the user)."

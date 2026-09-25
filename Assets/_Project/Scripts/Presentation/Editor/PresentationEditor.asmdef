@@ -1,0 +1,19 @@
+{
+    "name": "ArcanaWars.Presentation.Editor",
+    "rootNamespace": "ArcanaWars.Presentation.Editor",
+    "references": [
+        "ArcanaWars.Core",
+        "ArcanaWars.Cards",
+        "ArcanaWars.Presentation"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

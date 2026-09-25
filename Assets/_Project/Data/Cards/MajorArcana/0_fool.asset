@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 0_fool
+  m_EditorClassIdentifier: 
+  cardId: 0_fool
+  displayName: The Fool
+  art: {fileID: 0}
+  cost: 0
+  startingHp: 1
+  minStartingHp: 1
+  maxStartingHp: 4
+  footprint: 0
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: 'IMPLEMENTED (FoolAbility). Random 1-4 starting HP is rolled on spawn;
+    on death it burns 1-6 Pentacles. Deviation from the printed text, deliberate:
+    the burn is charged against the NEXT round''s mana pool rather than the current
+    one. Mana doesn''t carry over (GDD 7.1) and units only die in Combat or Decay,
+    both after the Action phase, so ''burn your current Pentacles'' would always
+    have been a no-op and the card''s own design note (''can cripple your economy
+    at a critical moment'') could never be true.'

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 14_temperance
+  m_EditorClassIdentifier: 
+  cardId: 14_temperance
+  displayName: Temperance
+  art: {fileID: 0}
+  cost: 9
+  startingHp: 10
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 7
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 2
+  overAttackPower: 0
+  healPower: 2
+  overHealPower: 0
+  pentaclePower: 2
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: 'FULLY IMPLEMENTED. Attack:2/Heal:2/Pentacle:2 with no extra ability
+    beyond the stat block, and the play condition (one unit of each element alive)
+    is now enforced. Read as YOUR OWN units of each element: the card''s design note
+    calls it a reward for generalist deckbuilding, which only holds if the board
+    being asked for is one you built.'

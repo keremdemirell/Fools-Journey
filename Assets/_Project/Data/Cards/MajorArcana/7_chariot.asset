@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 7_chariot
+  m_EditorClassIdentifier: 
+  cardId: 7_chariot
+  displayName: The Chariot
+  art: {fileID: 0}
+  cost: 5
+  startingHp: 8
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 8
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 1
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (ChariotAbility). Attack:1 is still an ordinary
+    lane attack; what's added is a step at the START of Combat: if an enemy stands
+    in its lane, it relocates to a random spot on your side where one of its columns
+    has a clear lane, and attacks from there. MY CALLS (user left the details to
+    me): free spots are preferred; with none, it PUSHES \u2014 it takes a spot occupied
+    only by friendly units that fit entirely inside it, and those slide into the
+    space it just left (a swap, so nothing is ever shoved off the board). Destinations
+    never overlap its current spot, which keeps that swap exact; 7-tile units can't
+    be pushed. Units standing on any Emperor's wall can't be moved (the Chariot or
+    anything it would push), and it never moves onto a wall. No legal spot = it attacks
+    from where it stands."

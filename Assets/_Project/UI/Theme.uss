@@ -1,0 +1,552 @@
+/*
+ * Arcana Wars — the one stylesheet every screen shares.
+ *
+ * Colours are variables on :root so a restyle (or the art pass) is one edit here, not a hunt
+ * through every layout. Selectors are prefixed with .app (the class on every screen's root) so
+ * they outrank Unity's default runtime theme, which styles the same elements with single-class
+ * selectors like .unity-label.
+ */
+
+:root {
+    --bg-panel: rgba(18, 18, 26, 0.92);
+    --bg-curtain: rgb(14, 14, 20);
+    --bg-button: rgb(58, 58, 72);
+    --bg-button-hover: rgb(78, 78, 96);
+    --bg-primary: rgb(150, 118, 50);
+    --bg-primary-hover: rgb(178, 142, 64);
+    --text: rgb(230, 230, 236);
+    --text-muted: rgb(160, 160, 172);
+    --accent: rgb(232, 192, 100);
+    --side-a: rgb(107, 173, 255);
+    --side-b: rgb(255, 128, 115);
+    --danger: rgb(255, 110, 110);
+}
+
+/* --- Structure --------------------------------------------------------------------------- */
+
+.screen-host,
+.fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Text and buttons -------------------------------------------------------------------- */
+
+.app .unity-label {
+    color: var(--text);
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.app .muted {
+    color: var(--text-muted);
+    -unity-font-style: italic;
+}
+
+.app .button {
+    font-size: 18px;
+    color: var(--text);
+    background-color: var(--bg-button);
+    border-width: 0;
+    border-radius: 6px;
+    padding: 6px 18px;
+    margin: 0 4px;
+}
+
+.app .button:hover {
+    background-color: var(--bg-button-hover);
+}
+
+.app .button:disabled {
+    opacity: 0.4;
+}
+
+.app .button--primary {
+    background-color: var(--bg-primary);
+}
+
+.app .button--primary:hover {
+    background-color: var(--bg-primary-hover);
+}
+
+.app .button--large {
+    font-size: 24px;
+    padding: 12px 36px;
+}
+
+.app .button--small {
+    font-size: 15px;
+    padding: 4px 12px;
+}
+
+/* A choice the player has already made (the chosen element, the chosen Ace mode). */
+.app .button--chosen {
+    background-color: var(--bg-primary);
+    border-width: 2px;
+    border-color: var(--accent);
+}
+
+/* --- Lobby --------------------------------------------------------------------------------- */
+
+.lobby {
+    background-color: rgb(16, 16, 22);
+    align-items: center;
+    justify-content: center;
+}
+
+.lobby__card {
+    width: 620px;
+    max-height: 92%;
+    padding: 24px 28px;
+    border-radius: 12px;
+    background-color: var(--bg-panel);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.lobby__card--narrow {
+    width: 460px;
+    align-items: center;
+}
+
+.app .lobby__title {
+    font-size: 38px;
+    -unity-font-style: bold;
+    color: var(--accent);
+    margin-bottom: 14px;
+}
+
+.lobby__section {
+    margin-bottom: 18px;
+    padding-top: 12px;
+    border-top-width: 1px;
+    border-top-color: rgba(255, 255, 255, 0.10);
+}
+
+.app .lobby__heading {
+    font-size: 20px;
+    -unity-font-style: bold;
+    margin-bottom: 8px;
+}
+
+.app .lobby__hint {
+    font-size: 13px;
+    white-space: normal;
+    margin-top: 6px;
+}
+
+.lobby__row {
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: 6px;
+}
+
+.lobby__field {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.lobby__field--narrow {
+    flex-grow: 0;
+    width: 160px;
+}
+
+.app .button--wide {
+    margin-top: 10px;
+    padding: 10px 18px;
+    -unity-text-align: middle-center;
+}
+
+.app .lobby__error {
+    color: var(--danger);
+    white-space: normal;
+}
+
+.app .lobby__status {
+    font-size: 18px;
+    color: var(--text-muted);
+    white-space: normal;
+    -unity-text-align: middle-center;
+    margin-bottom: 18px;
+}
+
+/* Unity's default theme styles these controls for the Editor; line them up with everything else. */
+.app .unity-base-field__label {
+    min-width: 90px;
+    color: var(--text-muted);
+}
+
+.app .unity-base-field {
+    margin: 4px 0;
+}
+
+/* --- Match: top bar ---------------------------------------------------------------------- */
+
+.top-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px;
+}
+
+.player-panel {
+    background-color: var(--bg-panel);
+    border-radius: 8px;
+    padding: 10px 16px;
+    min-width: 300px;
+    border-left-width: 5px;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.player-panel--a {
+    border-left-color: var(--side-a);
+}
+
+.player-panel--b {
+    border-left-color: var(--side-b);
+}
+
+/* Whose turn it is: an accent outline on that player's panel. */
+.player-panel--active {
+    border-top-color: var(--accent);
+    border-right-color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.app .player-panel__name {
+    font-size: 22px;
+    -unity-font-style: bold;
+    margin-bottom: 4px;
+}
+
+.phase-panel {
+    background-color: var(--bg-panel);
+    border-radius: 8px;
+    padding: 10px 20px;
+    min-width: 420px;
+    align-items: center;
+}
+
+.app .phase-panel__round {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.app .phase-panel__turn {
+    font-size: 26px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    white-space: normal;
+    margin: 4px 0;
+}
+
+.app .phase-panel__turn--yours {
+    color: var(--accent);
+}
+
+.phase-panel__controls {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 6px;
+}
+
+/* --- Match: messages --------------------------------------------------------------------- */
+
+.app .status-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 28%;
+    -unity-text-align: middle-center;
+    color: var(--text-muted);
+    -unity-font-style: italic;
+    white-space: normal;
+}
+
+.connection-panel {
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    top: 170px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--bg-panel);
+    border-width: 1px;
+    border-color: var(--danger);
+    align-items: center;
+}
+
+.app .connection-line {
+    -unity-text-align: middle-center;
+    color: var(--danger);
+    white-space: normal;
+    margin-bottom: 8px;
+}
+
+/* --- Match: unit HP labels ---------------------------------------------------------------- */
+
+/* Positioned from code in panel coordinates; translate centres each label on its own point. */
+.app .unit-hp {
+    position: absolute;
+    translate: -50% -50%;
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 1.5px;
+    -unity-text-outline-color: rgba(0, 0, 0, 0.85);
+}
+
+/* --- Match: the hand ---------------------------------------------------------------------- */
+
+.hand-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px;
+    align-items: center;
+}
+
+.hand-scroll {
+    max-width: 100%;
+}
+
+.hand-row {
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.app .hand-hidden {
+    color: var(--text-muted);
+    -unity-font-style: italic;
+    margin-bottom: 6px;
+}
+
+.hand-card {
+    width: 150px;
+    min-height: 92px;
+    margin: 0 5px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background-color: var(--bg-panel);
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.12);
+    border-bottom-width: 5px;
+    border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+.hand-card:hover {
+    background-color: rgba(38, 38, 52, 0.96);
+    translate: 0 -6px;
+}
+
+/* Selected: raised and outlined, so it stays obvious once the pointer moves to the board. */
+.hand-card--selected {
+    border-color: var(--accent);
+    translate: 0 -10px;
+}
+
+/* Can't pay for it right now — still selectable, since mana changes within a turn. */
+.hand-card--unaffordable {
+    opacity: 0.45;
+}
+
+/* Its printed condition isn't met (GDD section 11). The reason is in the tooltip and the status line. */
+.hand-card--blocked {
+    border-color: var(--danger);
+}
+
+.hand-card__header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.app .hand-card__cost {
+    min-width: 30px;
+    height: 26px;
+    margin-right: 8px;
+    padding: 0 4px;
+    border-radius: 13px;
+    background-color: rgba(0, 0, 0, 0.45);
+    font-size: 17px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    color: var(--accent);
+}
+
+.app .hand-card--discounted .hand-card__cost {
+    color: rgb(130, 230, 150);
+}
+
+.app .hand-card__name {
+    flex-shrink: 1;
+    font-size: 15px;
+    -unity-font-style: bold;
+    white-space: normal;
+}
+
+.app .hand-card__detail {
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: normal;
+}
+
+/* The four elements, plus the Major Arcana, read at a glance from the bottom edge. */
+.hand-card--swords {
+    border-bottom-color: rgb(150, 190, 235);
+}
+
+.hand-card--cups {
+    border-bottom-color: rgb(120, 200, 190);
+}
+
+.hand-card--pentacles {
+    border-bottom-color: rgb(225, 190, 95);
+}
+
+.hand-card--wands {
+    border-bottom-color: rgb(230, 140, 90);
+}
+
+.hand-card--major {
+    border-bottom-color: rgb(190, 140, 230);
+}
+
+/* --- Match: play-time choices -------------------------------------------------------------- */
+
+/* Sits directly above the hand, so the question and the card it is about are next to each other. */
+.choice-bar {
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: var(--bg-panel);
+    border-width: 1px;
+    border-color: var(--accent);
+}
+
+.app .choice-bar__prompt {
+    font-size: 17px;
+    -unity-text-align: middle-center;
+    white-space: normal;
+    margin-bottom: 6px;
+}
+
+.choice-bar__buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* --- Match: Judgement rulings --------------------------------------------------------------- */
+
+.judgement-panel {
+    position: absolute;
+    left: 16px;
+    top: 200px;
+    max-width: 420px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: var(--bg-panel);
+    border-width: 1px;
+    border-color: rgb(190, 140, 230);
+}
+
+.app .judgement-panel__title {
+    font-size: 20px;
+    -unity-font-style: bold;
+    margin-bottom: 2px;
+}
+
+/* Bounded so a long queue scrolls instead of running off the screen. */
+.judgement-panel__scroll {
+    max-height: 340px;
+}
+
+.judgement-row {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.app .judgement-row__name {
+    min-width: 150px;
+    flex-shrink: 1;
+    margin-right: 8px;
+    white-space: normal;
+}
+
+/* --- Match: the result ---------------------------------------------------------------------- */
+
+.end-layer {
+    background-color: rgba(8, 8, 12, 0.94);
+    align-items: center;
+    justify-content: center;
+}
+
+.app .end-layer__title {
+    font-size: 64px;
+    -unity-font-style: bold;
+    margin-bottom: 10px;
+}
+
+.app .end-layer__title--won {
+    color: var(--accent);
+}
+
+.app .end-layer__title--lost {
+    color: var(--text-muted);
+}
+
+.app .end-layer__detail {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+}
+
+/* --- Match: overlays --------------------------------------------------------------------- */
+
+.curtain {
+    background-color: var(--bg-curtain);
+    align-items: center;
+    justify-content: center;
+}
+
+.app .curtain__title {
+    font-size: 44px;
+    -unity-font-style: bold;
+    margin-bottom: 12px;
+}
+
+.app .curtain__subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+}
+
+.waiting {
+    background-color: rgba(10, 10, 14, 0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+.app .waiting__label {
+    font-size: 24px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}

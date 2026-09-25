@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 18_moon
+  m_EditorClassIdentifier: 
+  cardId: 18_moon
+  displayName: The Moon
+  art: {fileID: 0}
+  cost: 13
+  startingHp: 15
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 7
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 1
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "IMPLEMENTED as far as the simulation goes (MoonAbility). Heal:1
+    works normally, and the 50% miss chance now applies to every attack made by its
+    owner's opponent. The roll is per ATTACK ACTION, not per unit hit, so a piercing
+    Over-Attack either lands on the whole lane or misses all of it. A live Sun anywhere
+    on the board cancels the miss chance entirely (GDD 11.XIX's dispel). Hiding HP
+    values from the opponent is deliberately NOT implemented \u2014 it changes nothing
+    about what happens, only about what one player may see, so it's a Presentation
+    concern, and it can't be built honestly until the 'how do two humans play this'
+    question is settled (one shared screen has no second viewer to hide from)."

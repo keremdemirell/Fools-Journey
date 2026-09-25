@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 5_hierophant
+  m_EditorClassIdentifier: 
+  cardId: 5_hierophant
+  displayName: The Hierophant
+  art: {fileID: 0}
+  cost: 4
+  startingHp: 4
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 4
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "IMPLEMENTED (HierophantAbility). Condition: 8+ units played this
+    match (every card in this game spawns a unit, so that's the whole play history).
+    Each Decay phase it grants +1 HP to every friendly unit in front of it \u2014
+    same columns, past its own front edge, toward the enemy, which is deliberately
+    the identical geometry its units attack along (BoardQueries). It runs in the
+    survivors-only pass, so a unit that decayed away this round correctly misses
+    the buff."

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 10_wheel_of_fortune
+  m_EditorClassIdentifier: 
+  cardId: 10_wheel_of_fortune
+  displayName: Wheel of Fortune
+  art: {fileID: 0}
+  cost: 6
+  startingHp: 6
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 7
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 1
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (WheelOfFortuneAbility). Pentacle:1, condition
+    (Soul HP gap of 5+, either direction), and on play: discard your hand to the
+    discard pile, draw that many (the Wheel itself has already left hand, so it doesn't
+    count), regular capped Heal 5, and +2 Pentacles to THIS round's pool. DISCOUNT
+    (user decision): only the cards the Wheel draws cost 1 less \u2014 not the round's
+    normal draw \u2014 and each keeps the discount for as long as it's held. The
+    discount lives on the copy in hand, never goes below 0, and doesn't apply to
+    Aces (an Ace's cost is its HP, so a discount would be a free HP point). A Wheel-drawn
+    The World costs 14, and that's intended (user decision): GDD 7.3's 'Over-Pentacles
+    are the only way to reach 15' is NOT a rule the game enforces."

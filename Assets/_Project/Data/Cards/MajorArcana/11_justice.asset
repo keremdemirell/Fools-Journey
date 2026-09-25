@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 11_justice
+  m_EditorClassIdentifier: 
+  cardId: 11_justice
+  displayName: Justice
+  art: {fileID: 0}
+  cost: 7
+  startingHp: 7
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 4
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "IMPLEMENTED (JusticeAbility). AttackPower stays 0 here ON PURPOSE
+    and must not be 'fixed' to 2: the generic resolver only knows lane targeting,
+    so a wired stat would add a wrong third attack down its column. Its Attack:2
+    lives in JusticeAbility, which strikes the highest-HP and lowest-HP unit each
+    Combat phase, and reflects damage dealt to its owner's Soul back onto the attacking
+    unit. TARGETING (user decision): ENEMY units only, per the design note's 'threats'
+    \u2014 despite the card text's 'on the board'. With one enemy on the board, it
+    takes both attacks."

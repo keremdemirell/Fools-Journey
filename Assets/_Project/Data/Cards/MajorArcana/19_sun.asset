@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 19_sun
+  m_EditorClassIdentifier: 
+  cardId: 19_sun
+  displayName: The Sun
+  art: {fileID: 0}
+  cost: 13
+  startingHp: 6
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 10
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "IMPLEMENTED (SunAbility). Correctly has no base Attack stat \u2014
+    its strike isn't lane-based, so wiring one would add a wrong second attack. Each
+    Combat phase it deals damage equal to its CURRENT HP to the enemy unit with the
+    highest HP, which produces the decaying nuke its design note describes (6, then
+    5, then 4) for free, with no stored power to keep in sync. If the enemy has no
+    units it does nothing \u2014 the card gives it no Soul damage to fall back on.
+    DISPEL SCOPE, flagged: 'cancels all illusions, stealth, and armor' is implemented
+    as cancelling The Moon's miss chance only, that being the sole concealment effect
+    the simulation has. Deliberately NOT extended to Strength's damage immunity or
+    The Devil's Soul immunity, tempting as 'armor' sounds \u2014 those are the whole
+    identity of their cards rather than a status layered on top, and cancelling them
+    would rewrite two cards from one word in a third."

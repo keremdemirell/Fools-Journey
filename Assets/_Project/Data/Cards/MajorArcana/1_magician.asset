@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 1_magician
+  m_EditorClassIdentifier: 
+  cardId: 1_magician
+  displayName: The Magician
+  art: {fileID: 0}
+  cost: 1
+  startingHp: 2
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 0
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (MagicianAbility). Condition: 3+ different elements
+    in hand. The element is chosen AT PLAY TIME (CardPlayOptions.ChosenElement) and
+    is required. It gains that element's base trait at power 1 (Attack 1 / Heal 1
+    / Pentacle 1 / Wand buff) AND becomes that element \u2014 so it counts toward
+    Temperance \u2014 but keeps its own printed 2 HP rather than the 2 of Pentacles'
+    4 (user decision)."

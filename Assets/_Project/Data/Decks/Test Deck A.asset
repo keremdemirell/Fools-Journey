@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f55ee2de95efb4fb8f9d7ece4f5e63, type: 3}
+  m_Name: Test Deck A
+  m_EditorClassIdentifier: 
+  deck:
+    deckName: Test Deck A
+    entries:
+    - cardId: minor_Cups_9
+      count: 1
+    - cardId: minor_Swords_2
+      count: 1
+    - cardId: knight_Wands
+      count: 2
+    - cardId: minor_Pentacles_10
+      count: 2
+    - cardId: 21_world
+      count: 1
+    - cardId: knight_Cups
+      count: 2
+    - cardId: prince_Swords
+      count: 2
+    - cardId: queen_Cups
+      count: 1
+    - cardId: minor_Swords_5
+      count: 3
+    - cardId: 0_fool
+      count: 1
+    - cardId: minor_Swords_6
+      count: 1
+    - cardId: 18_moon
+      count: 1
+    - cardId: 7_chariot
+      count: 1
+    - cardId: 15_devil
+      count: 1
+    - cardId: minor_Pentacles_9
+      count: 1
+    - cardId: king_Swords
+      count: 3
+    - cardId: 12_hanged_man
+      count: 1
+    - cardId: 8_strength
+      count: 1
+    - cardId: minor_Pentacles_7
+      count: 1
+    - cardId: minor_Cups_4
+      count: 1
+    - cardId: king_Cups
+      count: 1
+    - cardId: minor_Wands_4
+      count: 2
+    - cardId: 4_emperor
+      count: 1
+    - cardId: 9_hermit
+      count: 1
+    - cardId: 3_empress
+      count: 1
+    - cardId: prince_Pentacles
+      count: 2
+    - cardId: minor_Wands_8
+      count: 1
+    - cardId: prince_Wands
+      count: 1
+    - cardId: 16_tower
+      count: 1
+    - cardId: minor_Pentacles_6
+      count: 1
+    - cardId: minor_Wands_10
+      count: 1
+    - cardId: minor_Cups_10
+      count: 1
+    - cardId: minor_Cups_8
+      count: 1
+    - cardId: minor_Swords_4
+      count: 1
+    - cardId: minor_Pentacles_4
+      count: 1

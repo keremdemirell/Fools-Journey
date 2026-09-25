@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 15_devil
+  m_EditorClassIdentifier: 
+  cardId: 15_devil
+  displayName: The Devil
+  art: {fileID: 0}
+  cost: 10
+  startingHp: 10
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 5
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 1
+  healPower: 0
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (DevilAbility). Over-Attack:1 (pierces the lane
+    + hits the Soul), condition (your Soul below 5 HP), Soul damage-immunity while
+    it lives, 'whenever an enemy unit takes damage deal 1 to the enemy Soul' (fires
+    for ANY source \u2014 its own attack, someone else's, a Tower explosion), and
+    the doomsday clock. TIMER READING: played on round N, the 20 fatal damage lands
+    at the end of round N+3, reading 'within 3 turns after playing' as the three
+    turns following the play; DevilAbility.DoomsdayTurns is the one constant to change.
+    The doomsday payment is the only damage in the game that bypasses Soul immunity
+    \u2014 it has to, since the only Soul it can hit is the one the Devil is protecting,
+    and respecting the immunity would make the card's drawback unreachable. It repeats
+    each round after the deadline if the Soul somehow survives (only possible via
+    Over-Heal)."

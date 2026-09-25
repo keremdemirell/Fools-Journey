@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 12_hanged_man
+  m_EditorClassIdentifier: 
+  cardId: 12_hanged_man
+  displayName: The Hanged Man
+  art: {fileID: 0}
+  cost: 8
+  startingHp: 2
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 0
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 1
+  overHealPower: 0
+  pentaclePower: 1
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (HangedManAbility). Heal:1/Pentacle:1, condition
+    (your Soul below the opponent's), and an optional ally target chosen AT PLAY
+    TIME. The target is sacrificed and a Tree (HP 10, 7-tile cluster, Heal 1, Pentacle
+    1, printed cost 0) grows centred on its anchor. Fit is checked before any mana
+    is spent: all 7 tiles must be free (or the target's), on your side, and not where
+    the Hanged Man itself will stand. The sacrifice is a REAL death (user decision)
+    \u2014 a sacrificed Fool still burns mana, a sacrificed Tower still explodes
+    \u2014 except that Death's 3-of-Swords passive stands down for it, since the
+    Tree takes that ground."

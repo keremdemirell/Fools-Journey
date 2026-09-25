@@ -1,0 +1,106 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="Theme.uss" />
+
+    <!--
+        The match HUD. Every element MatchScreen.cs looks up is found by its name, so renaming one
+        in UI Builder breaks that lookup (you'll get a clear error at startup naming it).
+
+        Full-screen containers are picking-mode="Ignore": they draw nothing, and anything pickable
+        counts as "UI under the pointer", which would stop clicks reaching the board behind.
+        Layers further down this file draw ON TOP of earlier ones.
+    -->
+    <ui:VisualElement name="match-screen" class="app fill" picking-mode="Ignore">
+
+        <ui:VisualElement name="top-bar" class="top-bar" picking-mode="Ignore">
+            <ui:VisualElement name="player-a" class="player-panel player-panel--a">
+                <ui:Label name="name" text="Player A" class="player-panel__name" />
+                <ui:Label name="soul" text="Soul 25/25" />
+                <ui:Label name="mana" text="Pentacles 3/3" />
+                <ui:Label name="cards" text="Hand 6/14   Deck 39" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="phase-panel" class="phase-panel">
+                <ui:Label name="round-label" text="Round 1 · Action" class="phase-panel__round" />
+                <ui:Label name="turn-label" text="Your turn" class="phase-panel__turn" />
+                <ui:VisualElement class="phase-panel__controls">
+                    <ui:Button name="phase-button" text="Pass" class="button button--primary" />
+                    <ui:Label name="clock-wait" text="Waiting for the host to continue..." class="muted" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="player-b" class="player-panel player-panel--b">
+                <ui:Label name="name" text="Player B" class="player-panel__name" />
+                <ui:Label name="soul" text="Soul 25/25" />
+                <ui:Label name="mana" text="Pentacles 3/3" />
+                <ui:Label name="cards" text="Hand 6/14   Deck 39" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!--
+            HP numbers pinned over units. Positioned from code every time the board changes or the
+            window is resized; picking-mode Ignore so a label never eats a click meant for its tile.
+        -->
+        <ui:VisualElement name="unit-labels" class="fill" picking-mode="Ignore" />
+
+        <ui:Label name="status-line" text="" class="status-line" picking-mode="Ignore" />
+        <!--
+            Silent while a network match is healthy. When it is not, it also offers the way out:
+            a desynced or abandoned match cannot be continued, and without this the only exit is
+            quitting the game.
+        -->
+        <ui:VisualElement name="connection-panel" class="connection-panel">
+            <ui:Label name="connection-line" text="" class="connection-line" />
+            <ui:Button name="leave-button" text="Back to lobby" class="button button--small" />
+        </ui:VisualElement>
+
+        <!--
+            Judgement's pending rulings (GDD 11.XX). Usually empty and hidden; rows are built from
+            code because they only exist while a Judgement is on the board.
+        -->
+        <ui:VisualElement name="judgement-panel" class="judgement-panel">
+            <ui:Label name="judgement-title" text="Judgement" class="judgement-panel__title" />
+            <ui:Label text="Return it to your hand, or discard it for good?" class="muted" />
+
+            <!--
+                Scrolls, because a Judgement queues a ruling for EVERY death while it is on the board
+                and decay kills units every round — an unbounded column would leave the last rows off
+                the bottom of the screen with no way to reach them.
+            -->
+            <ui:ScrollView name="judgement-scroll" class="judgement-panel__scroll">
+                <ui:VisualElement name="judgement-rows" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+
+        <!-- The viewer's hand, with the selected card's play-time choices directly above it. -->
+        <ui:VisualElement name="hand-bar" class="hand-bar">
+            <ui:VisualElement name="choice-bar" class="choice-bar">
+                <ui:Label name="choice-prompt" text="" class="choice-bar__prompt" />
+                <ui:VisualElement name="choice-buttons" class="choice-bar__buttons" />
+            </ui:VisualElement>
+
+            <ui:Label name="hand-hidden" text="" class="hand-hidden" />
+            <ui:ScrollView name="hand-scroll" mode="Horizontal" class="hand-scroll">
+                <ui:VisualElement name="hand-row" class="hand-row" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+
+        <!-- Hot-seat handover. Opaque and pickable on purpose: it hides the hand AND blocks the board. -->
+        <ui:VisualElement name="handover-curtain" class="fill curtain">
+            <ui:Label name="curtain-title" text="Pass the device to Player B" class="curtain__title" />
+            <ui:Label name="curtain-subtitle" text="" class="curtain__subtitle" />
+            <ui:Button name="curtain-ready" text="I'm Player B — ready" class="button button--primary button--large" />
+        </ui:VisualElement>
+
+        <!-- Shown while a network match is still connecting / waiting for the host's setup. -->
+        <ui:VisualElement name="waiting-layer" class="fill waiting">
+            <ui:Label name="waiting-label" text="Waiting for the match to start..." class="waiting__label" />
+        </ui:VisualElement>
+
+        <!-- The result. Last in the file, so it covers everything else once a Soul hits 0. -->
+        <ui:VisualElement name="end-layer" class="fill end-layer">
+            <ui:Label name="end-title" text="You win" class="end-layer__title" />
+            <ui:Label name="end-detail" text="" class="end-layer__detail" />
+            <ui:Button name="end-again" text="Back to lobby" class="button button--primary button--large" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

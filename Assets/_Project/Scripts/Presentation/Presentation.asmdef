@@ -1,0 +1,16 @@
+{
+    "name": "ArcanaWars.Presentation",
+    "rootNamespace": "ArcanaWars.Presentation",
+    "references": [
+        "ArcanaWars.Core",
+        "ArcanaWars.Cards"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

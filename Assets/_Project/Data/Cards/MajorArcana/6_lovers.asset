@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1337d0a440dbdb488876c3d09eb6154, type: 3}
+  m_Name: 6_lovers
+  m_EditorClassIdentifier: 
+  cardId: 6_lovers
+  displayName: The Lovers
+  art: {fileID: 0}
+  cost: 4
+  startingHp: 3
+  minStartingHp: -1
+  maxStartingHp: -1
+  footprint: 12
+  decayMultiplier: 1
+  isImmuneToAttackDamage: 0
+  instantDeathHpThreshold: -1
+  attackPower: 0
+  overAttackPower: 0
+  healPower: 1
+  overHealPower: 0
+  pentaclePower: 0
+  overPentaclePower: 0
+  leftNeighborHpBuffAmount: 0
+  selfHpBuffAmount: 0
+  abilityNotes: "FULLY IMPLEMENTED (LoversAbility). One card, two units: this card's
+    unit is the LEFT Lover (Heal 1, 3 HP), and on play the RIGHT Lover (Attack 1,
+    3 HP) spawns 5 columns to its right in the same rows. GAP = 4 TILES (user decision;
+    the GDD's 5 was judged too much). Each Lover is an UPRIGHT 3-tile column (3 rows
+    x 1 col) \u2014 originally forced by the old 9-wide board, kept because the user
+    liked it; on the new 18-wide board flat 1x3 strips would also fit if ever wanted.
+    The gap is the 4x3 block between them. Any friendly unit placed (played or spawned)
+    with a tile in the gap, while both Lovers live, permanently gains +1 Attack and
+    +1 Heal. Room for the right Lover is checked before any mana is spent."
